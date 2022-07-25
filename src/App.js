@@ -4,6 +4,7 @@ import "./App.css";
 import Dropzone from "dropzone";
 // Optionally, import the dropzone file to get default styling.
 import "dropzone/dist/dropzone.css";
+
 // https://codesandbox.io/s/react-dropzone-with-thumbnails-use-hooks-forked-h41fv0?file=/src/index.js
 
 Dropzone.autoDiscover = false;
@@ -52,6 +53,20 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref]);
 
+  // myAwesomeDropzone.on("addedfile", function (file) {
+  //   var ext = file.name.split(".").pop();
+
+  //   if (ext == "pdf") {
+  //     $(file.previewElement)
+  //       .find(".dz-image img")
+  //       .attr("src", "/src/asset/image/csv.png");
+  //   } else if (ext.indexOf("csv") != -1) {
+  //     $(file.previewElement)
+  //       .find(".dz-image img")
+  //       .attr("src", "/src/asset/image/pdf.png");
+  //   }
+  // });
+
   return (
     <div className="App">
       {/* <h2>上傳檔案</h2>
@@ -90,7 +105,7 @@ function App() {
       <section className="formarea">
         <h3>上傳產品圖片(一張或多張):</h3>
 
-        <form ref={ref} className="dropzone" id="my-form" action="/">
+        <form ref={ref} className="dropzone" id="myAwesomeDropzone" action="/">
           <div id="previewtemplate" style={{ display: "none" }}>
             <div className="dz-preview dz-file-preview">
               <div className="dz-image">
