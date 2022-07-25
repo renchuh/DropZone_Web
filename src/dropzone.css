@@ -342,12 +342,12 @@
         width: 80px;
         margin-left: -40px;
         background: rgba(78, 190, 132, 0.9);
-        -webkit-transform: scale(1);
+        /* -webkit-transform: scale(1); */
         border-radius: 8px;
         overflow: hidden; }
         .dropzone .dz-preview .dz-progress .dz-upload {
-          background: #333;
-          background: linear-gradient(to bottom, #666, #444);
+          background: rgba(78, 190, 132, 0.9) !important;
+          /* background: linear-gradient(to bottom, #666, #444); */
           position: absolute;
           top: 0;
           left: 0;

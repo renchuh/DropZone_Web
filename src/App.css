@@ -95,3 +95,7 @@
   display:block;
   margin: auto;
 }
+
+.dz-upload {
+  background: rgba(54, 213, 118, 0.8) !important;
+}

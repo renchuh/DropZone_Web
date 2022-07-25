@@ -1,7 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import react, { useRef, useEffect, useState } from "react";
 import "./App.css";
+import $ from "jquery";
 import Dropzone from "dropzone";
+
 // Optionally, import the dropzone file to get default styling.
 import "dropzone/dist/dropzone.css";
 
@@ -53,19 +55,23 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref]);
 
-  // myAwesomeDropzone.on("addedfile", function (file) {
-  //   var ext = file.name.split(".").pop();
+  //
+  Dropzone.options.myAwesomeDropzone = {
+    accept: function (file, done) {
+      var thumbnail = $(".dropzone .dz-preview.dz-file-preview .dz-image:last");
 
-  //   if (ext == "pdf") {
-  //     $(file.previewElement)
-  //       .find(".dz-image img")
-  //       .attr("src", "/src/asset/image/csv.png");
-  //   } else if (ext.indexOf("csv") != -1) {
-  //     $(file.previewElement)
-  //       .find(".dz-image img")
-  //       .attr("src", "/src/asset/image/pdf.png");
-  //   }
-  // });
+      switch (file.type) {
+        case "application/pdf":
+          thumbnail.css("background", "url(image/pdf.png");
+          break;
+        case "text/csv":
+          thumbnail.css("background", "url(image/csv.png");
+          break;
+      }
+
+      done();
+    },
+  };
 
   return (
     <div className="App">
@@ -160,38 +166,23 @@ function App() {
             <></>
           ) : (
             <section className="upload dz-clickable">
-              {/* <svg
-                t="1658589034506"
-                viewBox="0 0 1024 1024"
-                fill="#007acc"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                p-id="2277"
-                width="200"
-                height="200"
-              >
-                <path
-                  d="M796.2 466.4c0-2.4 0.4-4.8 0.4-7.2 0-130-103.6-235.2-231.4-235.2-92.2 0-171.4 54.8-208.6 134-16.2-8.2-34.4-13-53.6-13-59 0-108.2 43.8-117.6 101C114.6 470.4 64 538.2 64 618c0 100.4 80.2 182 179 182L448 800l0-160-96.4 0 160.4-167.4 160.4 167.2-96.4 0 0 160 220.6 0c90.4 0 163.4-75 163.4-166.8C960 541.2 886.6 466.6 796.2 466.4z"
-                  p-id="2278"
-                ></path>
-              </svg> */}
               <div className="container">
                 <svg
                   id="svgMain"
                   align="center"
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512.02 512"
                   width="130"
                   height="130"
+                  viewBox="0 0 58 54"
                 >
                   <path
-                    d="M511.61,315.85l-.06-.26c-.13-.6-.28-1.2-.46-1.8,0-.16-.11-.32-.16-.47s-.17-.53-.27-.79l-64-170.67a21.33,21.33,0,0,0-20-13.84h-64a21.33,21.33,0,1,0,0,42.66H411.9l48,128H362.69A21.34,21.34,0,0,0,341.35,320v42.66H170.69V320a21.34,21.34,0,0,0-21.34-21.34H52.14l48-128h49.21a21.33,21.33,0,1,0,0-42.66h-64a21.32,21.32,0,0,0-20,13.84l-64,170.67c-.1.26-.18.52-.27.78l-.16.48c-.18.6-.33,1.2-.46,1.8l-.06.26A21.37,21.37,0,0,0,0,320.73v170A21.33,21.33,0,0,0,21.35,512H490.69A21.33,21.33,0,0,0,512,490.69v-170A21.37,21.37,0,0,0,511.61,315.85Zm-42.26,153.5H42.69v-128H128V384a21.33,21.33,0,0,0,21.33,21.33H362.68A21.33,21.33,0,0,0,384,384V341.35h85.33v128Z"
-                    transform="translate(-0.01 -0.02)"
-                    fill="#5579C9"
+                    d="M36.29,12.12a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.41l-8-8h0L29,2l-.71.71h0l-8,8a1,1,0,0,0,0,1.41,1,1,0,0,0,1.42,0L28,5.83V33.41a1,1,0,0,0,2,0V5.83Z"
+                    transform="translate(0 -2)"
+                    fill="#153E9B"
                   />
                   <path
-                    d="M176.93,228.44l64,64h0a20.6,20.6,0,0,0,1.55,1.4c.24.2.5.38.76.57s.6.46.91.67.62.38.93.57.57.35.86.51.65.31,1,.46.61.3.92.43.64.24,1,.35.67.25,1,.36.64.16,1,.24.7.19,1.06.26.75.12,1.12.17.63.11.94.14a20.9,20.9,0,0,0,2.09.11h0c.7,0,1.39,0,2.08-.11.32,0,.63-.09.95-.14s.75-.09,1.12-.17.71-.17,1.06-.26.64-.15,1-.24.68-.24,1-.36.64-.22.95-.35.62-.28.93-.43.65-.29,1-.46.57-.34.86-.51.62-.36.93-.57.61-.44.91-.67.51-.37.76-.57a20.6,20.6,0,0,0,1.55-1.4h0l64-64a21.33,21.33,0,0,0-30.17-30.17l-27.58,27.58V21.35a21.33,21.33,0,0,0-42.66,0v204.5L207.1,198.27a21.33,21.33,0,0,0-30.17,30.17Z"
-                    transform="translate(-0.01 -0.02)"
+                    d="M58,32.68,57.53,32h0l-3.58-5.38L51.52,23h0l-4-6H36v2H46.47l8.67,13H39v7H19V32H2.86l8.67-13H22V17H10.47L.43,32h0L0,32.65v20A3.39,3.39,0,0,0,3.38,56H54.61A3.39,3.39,0,0,0,58,52.62V32.68Z"
+                    transform="translate(0 -2)"
                     fill="#153E9B"
                   />
                 </svg>
