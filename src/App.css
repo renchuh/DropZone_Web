@@ -1,0 +1,97 @@
+.App {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.dp {
+  height: 350px;
+  width: 700px;
+  border: 1px dashed gray;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  justify-self: center;
+  border-radius: 10px;
+}
+.content {
+  height: 30px;
+  width: 335px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+#my-form {
+  border: 1px dashed gray;
+  width: 100%;
+}
+
+.upload {
+  display: grid;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.btn_del {
+  width: 120px;
+  height: 25px;
+}
+
+.btn {
+  background-color: #132646;
+  border-radius: 8px;
+  color: white;
+}
+.btn-style {
+  height: 40px;
+  width: 80px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.dz-preview {
+  background-color: #eeeeee !important;
+  padding: 15px;
+  border-radius: 10px;
+}
+.btn-gen {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 40px;
+  width: 120px;
+  font-size: 1.1rem;
+  font-weight: bold !important;
+}
+.container {
+  display: flex ;
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 20px;
+}
+.tip {
+  color: #293084;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+.icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99999;
+}
+
+.dz-progress{
+  left: 50% !important;
+  top:62% !important;
+}
+
+.svgMain {
+  display: flex ;
+  justify-content: center; 
+  align-items: center; 
+  display:block;
+  margin: auto;
+}
