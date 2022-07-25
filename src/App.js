@@ -23,15 +23,30 @@ function App() {
       renders.current++;
       new Dropzone(ref.current, {
         previewTemplate: document.querySelector("#previewtemplate").innerHTML,
-        complete: () => {
+        complete: (file, response) => {
           set_show(false);
+          file.previewElement.classList.remove("dz-error");
+          file.previewElement.classList.add("dz-success");
+          file.previewElement.querySelector(".dz-progress").style.display =
+            "none";
         },
+
+        success: (file, response) => {
+          console.log("Success");
+          console.log(response);
+          file.previewElement.classList.remove("dz-error");
+          file.previewElement.classList.add("dz-success");
+          file.previewElement.querySelector(".dz-progress").style.display =
+            "none";
+        },
+
         acceptedFiles: ".pdf,.csv,.png",
         parallelUploads: 2,
         thumbnailHeight: 120,
         thumbnailWidth: 120,
         maxFilesize: 300,
         filesizeBase: 1000,
+
         // addRemoveLinks:true,
         thumbnail: function (file, dataUrl) {
           if (file.previewElement) {
@@ -55,7 +70,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref]);
 
-  //
+  //file type
   Dropzone.options.myAwesomeDropzone = {
     accept: function (file, done) {
       var thumbnail = $(".dropzone .dz-preview.dz-file-preview .dz-image:last");
