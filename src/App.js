@@ -31,17 +31,17 @@ function App() {
             "none";
         },
 
-        success: (file, response) => {
-          console.log("Success");
-          console.log(response);
-          file.previewElement.classList.remove("dz-error");
-          file.previewElement.classList.add("dz-success");
-          file.previewElement.querySelector(".dz-progress").style.display =
-            "none";
-        },
+        // success: (file, response) => {
+        //   console.log("Success");
+        //   console.log(response);
+        //   file.previewElement.classList.remove("dz-error");
+        //   file.previewElement.classList.add("dz-success");
+        //   file.previewElement.querySelector(".dz-progress").style.display =
+        //     "none";
+        // },
 
         acceptedFiles: ".pdf,.csv,.png",
-        parallelUploads: 2,
+        parallelUploads: 5,
         thumbnailHeight: 120,
         thumbnailWidth: 120,
         maxFilesize: 300,
@@ -59,6 +59,7 @@ function App() {
               var thumbnailElement = images[i];
               thumbnailElement.alt = file.name;
               thumbnailElement.src = dataUrl;
+              // set_show(true);
             }
             setTimeout(function () {
               file.previewElement.classList.add("dz-image-preview");
@@ -83,7 +84,6 @@ function App() {
           thumbnail.css("background", "url(image/csv.png");
           break;
       }
-
       done();
     },
   };
