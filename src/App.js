@@ -208,9 +208,9 @@ function App() {
             </section>
           )}
         </form>
-        <div className="container">
+        {/* <div className="container">
           <button className="btn btn-gen">產生圖片</button>
-        </div>
+        </div> */}
       </section>
     </div>
   );
